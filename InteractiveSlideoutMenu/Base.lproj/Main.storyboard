@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Main View Controller-->
@@ -46,17 +47,26 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29E-Nc-GHA">
-                                <rect key="frame" x="281" y="20" width="39" height="30"/>
-                                <state key="normal" title="Close"/>
+                                <rect key="frame" x="256" y="20" width="64" height="548"/>
                                 <connections>
                                     <action selector="closeMenu:" destination="syw-Sf-K3A" eventType="touchUpInside" id="ju1-g5-R7O"/>
                                 </connections>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ix7-kz-yE5">
+                                <rect key="frame" x="0.0" y="20" width="256" height="548"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="29E-Nc-GHA" secondAttribute="trailing" id="1Za-9X-6q6"/>
+                            <constraint firstItem="29E-Nc-GHA" firstAttribute="leading" secondItem="Ix7-kz-yE5" secondAttribute="trailing" id="EcL-TW-L2C"/>
                             <constraint firstItem="29E-Nc-GHA" firstAttribute="top" secondItem="fTz-R2-xhX" secondAttribute="bottom" id="GMe-5T-BUX"/>
+                            <constraint firstItem="pz6-jp-sdW" firstAttribute="top" secondItem="Ix7-kz-yE5" secondAttribute="bottom" id="cgx-C9-lAk"/>
+                            <constraint firstItem="pz6-jp-sdW" firstAttribute="top" secondItem="29E-Nc-GHA" secondAttribute="bottom" id="fFV-s6-5KQ"/>
+                            <constraint firstItem="Ix7-kz-yE5" firstAttribute="leading" secondItem="dmw-oP-DcN" secondAttribute="leading" id="ky2-zy-yXc"/>
+                            <constraint firstItem="Ix7-kz-yE5" firstAttribute="top" secondItem="fTz-R2-xhX" secondAttribute="bottom" id="qUF-Tm-Mad"/>
+                            <constraint firstItem="Ix7-kz-yE5" firstAttribute="width" secondItem="dmw-oP-DcN" secondAttribute="width" multiplier="0.8" id="xKX-RU-ctm"/>
                         </constraints>
                     </view>
                 </viewController>

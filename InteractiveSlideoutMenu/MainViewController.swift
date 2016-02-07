@@ -26,4 +26,8 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return PresentMenuAnimator()
     }
+
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return DismissMenuAnimator()
+    }
 }
