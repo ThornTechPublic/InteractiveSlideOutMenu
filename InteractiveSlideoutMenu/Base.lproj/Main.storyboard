@@ -18,6 +18,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="QRD-td-686" appends="YES" id="ZEz-Jf-FV7"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="rWn-Ze-DLl">
                         <barButtonItem key="leftBarButtonItem" title="Menu" id="Rcp-VJ-rYt">
@@ -31,6 +35,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="QRD-td-686">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="edgePanGesture:" destination="BYZ-38-t0r" id="mKo-Gy-64h"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="539.20000000000005" y="991.15999999999997"/>
         </scene>

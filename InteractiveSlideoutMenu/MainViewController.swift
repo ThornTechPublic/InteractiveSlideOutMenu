@@ -16,6 +16,19 @@ class MainViewController: UIViewController {
         performSegueWithIdentifier("openMenu", sender: nil)
     }
     
+    @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translationInView(view)
+        
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        
+        MenuHelper.mapGestureStateToInteractor(
+            sender.state,
+            progress: progress,
+            interactor: interactor){
+                self.performSegueWithIdentifier("openMenu", sender: nil)
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
@@ -35,6 +48,10 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     }
     
     func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
+    }
+    
+    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
 }
