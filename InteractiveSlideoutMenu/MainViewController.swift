@@ -14,10 +14,16 @@ class MainViewController: UIViewController {
         performSegueWithIdentifier("openMenu", sender: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let destinationViewController = segue.destinationViewController as? MenuViewController {
+            destinationViewController.transitioningDelegate = self
+        }
     }
 
 }
 
+extension MainViewController: UIViewControllerTransitioningDelegate {
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return PresentMenuAnimator()
+    }
+}

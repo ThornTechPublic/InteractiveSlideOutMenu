@@ -1,5 +1,5 @@
 //
-//  HamburgerMenuHelper.swift
+//  MenuHelper.swift
 //  InteractiveSlideoutMenu
 //
 //  Created by Robert Chen on 2/7/16.
