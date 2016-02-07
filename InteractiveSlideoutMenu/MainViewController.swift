@@ -10,6 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    let interactor = Interactor()
+
     @IBAction func openMenu(sender: AnyObject) {
         performSegueWithIdentifier("openMenu", sender: nil)
     }
@@ -17,6 +19,7 @@ class MainViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
+            destinationViewController.interactor = interactor
         }
     }
 
@@ -29,5 +32,9 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
 
     func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissMenuAnimator()
+    }
+    
+    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        return interactor.hasStarted ? interactor : nil
     }
 }
