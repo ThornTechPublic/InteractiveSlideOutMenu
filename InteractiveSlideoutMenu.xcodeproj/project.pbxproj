@@ -14,6 +14,8 @@
 		FCE69DBA1C67A61B004247E0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE69DB81C67A61B004247E0 /* LaunchScreen.storyboard */; };
 		FCE69DC51C67A61B004247E0 /* InteractiveSlideoutMenuUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DC41C67A61B004247E0 /* InteractiveSlideoutMenuUITests.swift */; };
 		FCE69DD01C67A695004247E0 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DCF1C67A695004247E0 /* MenuViewController.swift */; };
+		FCE69DD21C67A81C004247E0 /* HamburgerMenuHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DD11C67A81C004247E0 /* HamburgerMenuHelper.swift */; };
+		FCE69DD41C67A859004247E0 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DD31C67A859004247E0 /* Interactor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +40,8 @@
 		FCE69DC41C67A61B004247E0 /* InteractiveSlideoutMenuUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSlideoutMenuUITests.swift; sourceTree = "<group>"; };
 		FCE69DC61C67A61B004247E0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FCE69DCF1C67A695004247E0 /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		FCE69DD11C67A81C004247E0 /* HamburgerMenuHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HamburgerMenuHelper.swift; sourceTree = "<group>"; };
+		FCE69DD31C67A859004247E0 /* Interactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +86,8 @@
 				FCE69DAF1C67A61B004247E0 /* AppDelegate.swift */,
 				FCE69DB11C67A61B004247E0 /* MainViewController.swift */,
 				FCE69DCF1C67A695004247E0 /* MenuViewController.swift */,
+				FCE69DD31C67A859004247E0 /* Interactor.swift */,
+				FCE69DD11C67A81C004247E0 /* HamburgerMenuHelper.swift */,
 				FCE69DB31C67A61B004247E0 /* Main.storyboard */,
 				FCE69DB61C67A61B004247E0 /* Assets.xcassets */,
 				FCE69DB81C67A61B004247E0 /* LaunchScreen.storyboard */,
@@ -202,6 +208,8 @@
 			files = (
 				FCE69DB21C67A61B004247E0 /* MainViewController.swift in Sources */,
 				FCE69DD01C67A695004247E0 /* MenuViewController.swift in Sources */,
+				FCE69DD41C67A859004247E0 /* Interactor.swift in Sources */,
+				FCE69DD21C67A81C004247E0 /* HamburgerMenuHelper.swift in Sources */,
 				FCE69DB01C67A61B004247E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
