@@ -12,6 +12,12 @@ class MenuViewController : UIViewController {
     
     var interactor:Interactor? = nil
     
+    let tabArray = ["First", "Second"]
+    
+    var tabSwitcher:TabSwitcher? = nil
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
         let translation = sender.translationInView(view)
         
@@ -29,4 +35,30 @@ class MenuViewController : UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+}
+
+extension MenuViewController: UITableViewDataSource {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tabArray.count
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath)
+        cell.textLabel?.text = tabArray[indexPath.row]
+        return cell
+    }
+}
+
+extension MenuViewController: UITableViewDelegate {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        switch indexPath.row {
+        case 0, 1:
+            dismissViewControllerAnimated(true){
+                self.tabSwitcher?.switchToTab(indexPath.row)
+            }
+        default:
+            break
+        }
+    }
 }

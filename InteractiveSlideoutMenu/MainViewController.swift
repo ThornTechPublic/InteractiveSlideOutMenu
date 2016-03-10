@@ -8,7 +8,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+protocol TabSwitcher {
+    func switchToTab(index:Int)
+}
+
+class MainViewControllerTemplate: UIViewController {
 
     let interactor = Interactor()
 
@@ -33,12 +37,13 @@ class MainViewController: UIViewController {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
+            destinationViewController.tabSwitcher = self
         }
     }
 
 }
 
-extension MainViewController: UIViewControllerTransitioningDelegate {
+extension MainViewControllerTemplate: UIViewControllerTransitioningDelegate {
     func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return PresentMenuAnimator()
     }
@@ -53,5 +58,11 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
+    }
+}
+
+extension MainViewControllerTemplate: TabSwitcher {
+    func switchToTab(index:Int) {
+        tabBarController?.selectedIndex = index
     }
 }
