@@ -1,1 +1,3 @@
 ![](/slideoutFinal.gif)
+
+![](/menuSwitchesTabs.gif)
