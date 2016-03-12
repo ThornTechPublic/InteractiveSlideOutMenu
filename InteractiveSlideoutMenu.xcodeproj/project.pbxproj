@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC68A2751C93A7ED00B0AD28 /* TopLevelTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68A2741C93A7ED00B0AD28 /* TopLevelTab.swift */; };
+		FC68A27D1C93AADA00B0AD28 /* ExtraPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68A27C1C93AADA00B0AD28 /* ExtraPage.swift */; };
+		FC68A27F1C93ACC100B0AD28 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC68A27E1C93ACC100B0AD28 /* TabBarController.swift */; };
 		FC6A7DDD1C91CC16008B1AE2 /* FirstTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A7DDC1C91CC16008B1AE2 /* FirstTab.swift */; };
 		FC6A7DDF1C91CC1E008B1AE2 /* SecondTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC6A7DDE1C91CC1E008B1AE2 /* SecondTab.swift */; };
 		FCE69DB01C67A61B004247E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DAF1C67A61B004247E0 /* AppDelegate.swift */; };
@@ -33,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC68A2741C93A7ED00B0AD28 /* TopLevelTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopLevelTab.swift; sourceTree = "<group>"; };
+		FC68A27C1C93AADA00B0AD28 /* ExtraPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtraPage.swift; sourceTree = "<group>"; };
+		FC68A27E1C93ACC100B0AD28 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		FC6A7DDC1C91CC16008B1AE2 /* FirstTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstTab.swift; sourceTree = "<group>"; };
 		FC6A7DDE1C91CC1E008B1AE2 /* SecondTab.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondTab.swift; sourceTree = "<group>"; };
 		FCE69DAC1C67A61B004247E0 /* InteractiveSlideoutMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveSlideoutMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,9 @@
 				FCE69DD11C67A81C004247E0 /* MenuHelper.swift */,
 				FCE69DD51C67A8B8004247E0 /* PresentMenuAnimator.swift */,
 				FCE69DD71C67A99D004247E0 /* DismissMenuAnimator.swift */,
+				FC68A2741C93A7ED00B0AD28 /* TopLevelTab.swift */,
+				FC68A27E1C93ACC100B0AD28 /* TabBarController.swift */,
+				FC68A27C1C93AADA00B0AD28 /* ExtraPage.swift */,
 				FCE69DB31C67A61B004247E0 /* Main.storyboard */,
 				FCE69DB61C67A61B004247E0 /* Assets.xcassets */,
 				FCE69DB81C67A61B004247E0 /* LaunchScreen.storyboard */,
@@ -225,7 +234,10 @@
 				FCE69DD81C67A99D004247E0 /* DismissMenuAnimator.swift in Sources */,
 				FC6A7DDF1C91CC1E008B1AE2 /* SecondTab.swift in Sources */,
 				FCE69DD61C67A8B8004247E0 /* PresentMenuAnimator.swift in Sources */,
+				FC68A27D1C93AADA00B0AD28 /* ExtraPage.swift in Sources */,
 				FCE69DD21C67A81C004247E0 /* MenuHelper.swift in Sources */,
+				FC68A27F1C93ACC100B0AD28 /* TabBarController.swift in Sources */,
+				FC68A2751C93A7ED00B0AD28 /* TopLevelTab.swift in Sources */,
 				FCE69DB01C67A61B004247E0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

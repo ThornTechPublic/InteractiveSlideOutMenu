@@ -12,10 +12,8 @@ class MenuViewController : UIViewController {
     
     var interactor:Interactor? = nil
     
-    let tabArray = ["First", "Second"]
-    
-    var tabSwitcher:TabSwitcher? = nil
-    
+    let tabArray = ["First", "Second", "Extra Page"]
+        
     @IBOutlet weak var tableView: UITableView!
     
     @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
@@ -53,9 +51,19 @@ extension MenuViewController: UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         switch indexPath.row {
-        case 0, 1:
+        case 0:
             dismissViewControllerAnimated(true){
-                self.tabSwitcher?.switchToTab(indexPath.row)
+                NSNotificationCenter.defaultCenter().postNotificationName("goToTabs", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("goToTabOne", object: nil)
+            }
+        case 1:
+            dismissViewControllerAnimated(true){
+                NSNotificationCenter.defaultCenter().postNotificationName("goToTabs", object: nil)
+                NSNotificationCenter.defaultCenter().postNotificationName("goToTabTwo", object: nil)
+            }
+        case 2:
+            dismissViewControllerAnimated(true){
+                NSNotificationCenter.defaultCenter().postNotificationName("goToExtraPage", object: nil)
             }
         default:
             break
