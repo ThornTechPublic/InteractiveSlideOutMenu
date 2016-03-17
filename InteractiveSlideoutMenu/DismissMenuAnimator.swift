@@ -24,7 +24,7 @@ extension DismissMenuAnimator : UIViewControllerAnimatedTransitioning {
             else {
                 return
         }
-        let snapshot = containerView.viewWithTag(MenuHelper.snapshotCardinalNumber)
+        let snapshot = containerView.viewWithTag(MenuHelper.snapshotNumber)
         
         UIView.animateWithDuration(
             transitionDuration(transitionContext),
