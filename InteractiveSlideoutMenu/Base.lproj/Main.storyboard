@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hhN-NR-JOp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9532" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hhN-NR-JOp">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
@@ -32,6 +32,8 @@
                     </navigationItem>
                     <connections>
                         <segue destination="syw-Sf-K3A" kind="modal" identifier="openMenu" id="Ufv-7b-K0b"/>
+                        <segue destination="7mr-Jm-DcZ" kind="push" identifier="openFirst" id="1dx-bO-Kt6"/>
+                        <segue destination="IUf-18-AfC" kind="push" identifier="openSecond" id="dE0-JY-rb3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -43,6 +45,44 @@
                 </screenEdgePanGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="539.20000000000005" y="991.15999999999997"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Rr9-sw-jdG">
+            <objects>
+                <viewController id="7mr-Jm-DcZ" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GMO-C9-YWP"/>
+                        <viewControllerLayoutGuide type="bottom" id="RKD-Tj-svO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="VOZ-5G-UOW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.40000000600000002" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="QBu-4V-GOW"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZKY-Hf-MBy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="336" y="1756"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="uWF-74-WLs">
+            <objects>
+                <viewController id="IUf-18-AfC" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="x8F-0K-7cI"/>
+                        <viewControllerLayoutGuide type="bottom" id="Lae-Wk-fC8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="01l-gp-3tJ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="IHz-Zm-UMG"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="G9H-bI-FLh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="772" y="1756"/>
         </scene>
         <!--Menu View Controller-->
         <scene sceneID="KfK-DX-E9p">
@@ -67,6 +107,20 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ix7-kz-yE5">
                                 <rect key="frame" x="0.0" y="20" width="256" height="548"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kOr-gK-QrM">
+                                        <rect key="frame" x="0.0" y="28" width="256" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kOr-gK-QrM" id="qJ7-Tt-N9U">
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="syw-Sf-K3A" id="HIk-OG-Xpv"/>
+                                    <outlet property="delegate" destination="syw-Sf-K3A" id="qht-Jz-YKa"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="1" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -82,6 +136,9 @@
                             <constraint firstItem="Ix7-kz-yE5" firstAttribute="width" secondItem="dmw-oP-DcN" secondAttribute="width" multiplier="0.8" id="xKX-RU-ctm"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ix7-kz-yE5" id="9aj-Ov-CoI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rKm-2E-IGl" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="gP2-xN-kpY">

@@ -8,6 +8,10 @@
 
 import UIKit
 
+protocol MenuActionDelegate {
+    func openSegue(segueName: String, sender: AnyObject?)
+}
+
 class MainViewController: UIViewController {
 
     let interactor = Interactor()
@@ -33,6 +37,7 @@ class MainViewController: UIViewController {
         if let destinationViewController = segue.destinationViewController as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
+            destinationViewController.menuActionDelegate = self
         }
     }
 
@@ -53,5 +58,13 @@ extension MainViewController: UIViewControllerTransitioningDelegate {
     
     func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
+    }
+}
+
+extension MainViewController : MenuActionDelegate {
+    func openSegue(segueName: String, sender: AnyObject?) {
+        dismissViewControllerAnimated(true){
+            self.performSegueWithIdentifier(segueName, sender: sender)
+        }
     }
 }
