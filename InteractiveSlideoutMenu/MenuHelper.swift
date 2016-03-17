@@ -22,7 +22,7 @@ struct MenuHelper {
     
     static let percentThreshold:CGFloat = 0.3
     
-    static let snapshotCardinalNumber = 12345
+    static let snapshotNumber = 12345
     
     static func calculateProgress(translationInView:CGPoint, viewBounds:CGRect, direction:Direction) -> CGFloat {
         let pointOnAxis:CGFloat
