@@ -33,15 +33,11 @@ extension PresentMenuAnimator : UIViewControllerAnimatedTransitioning {
         snapshot.layer.shadowOpacity = 0.7
         containerView.insertSubview(snapshot, aboveSubview: toVC.view)
         fromVC.view.hidden = true
-        // figure out where to move the main view snapshot to
-        let screenBounds = UIScreen.mainScreen().bounds
-        let finalFrameTopLeftCorner = CGPoint(x: screenBounds.width * MenuHelper.menuWidth, y: 0)
-        let snapshotFinalFrame = CGRect(origin: finalFrameTopLeftCorner, size: screenBounds.size)
         
         UIView.animateWithDuration(
             transitionDuration(transitionContext),
             animations: {
-                snapshot.frame = snapshotFinalFrame
+                snapshot.center.x += UIScreen.mainScreen().bounds.width * MenuHelper.menuWidth
             },
             completion: { _ in
                 fromVC.view.hidden = false
