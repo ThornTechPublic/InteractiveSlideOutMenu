@@ -55,7 +55,7 @@ extension PresentMenuAnimator : UIViewControllerAnimatedTransitioning {
         UIView.animateWithDuration(
             transitionDuration(transitionContext),
             animations: {
-                snapshot.center.x += UIScreen.mainScreen().bounds.width * MenuHelper.menuWidth
+                snapshot.center.x -= UIScreen.mainScreen().bounds.width * MenuHelper.menuWidth
             },
             completion: { _ in
                 fromVC.view.hidden = false

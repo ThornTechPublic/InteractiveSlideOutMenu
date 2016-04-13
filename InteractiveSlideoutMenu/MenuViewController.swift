@@ -39,7 +39,7 @@ class MenuViewController : UIViewController {
     @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
         let translation = sender.translationInView(view)
 
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Left)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
         
         MenuHelper.mapGestureStateToInteractor(
             sender.state,

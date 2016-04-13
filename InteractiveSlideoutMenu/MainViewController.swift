@@ -41,7 +41,7 @@ class MainViewController: UIViewController {
     @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
         let translation = sender.translationInView(view)
         
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Left)
         
         MenuHelper.mapGestureStateToInteractor(
             sender.state,
