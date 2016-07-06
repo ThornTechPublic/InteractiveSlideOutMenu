@@ -1,15 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="hhN-NR-JOp">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="93s-7H-bjf">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
-        <!--Main View Controller-->
+        <!--Tab Bar Controller-->
+        <scene sceneID="8W8-MT-pfh">
+            <objects>
+                <tabBarController id="93s-7H-bjf" sceneMemberID="viewController">
+                    <tabBar key="tabBar" hidden="YES" contentMode="scaleToFill" id="N7F-NB-mgN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="hhN-NR-JOp" kind="relationship" relationship="viewControllers" id="fcc-mO-cyR"/>
+                        <segue destination="SZs-DT-rol" kind="relationship" relationship="viewControllers" id="c1p-15-aRz"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kfY-gR-eum" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-290" y="991"/>
+        </scene>
+        <!--Tab1-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainViewController" customModule="InteractiveSlideoutMenu" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="Tab1" customModule="InteractiveSlideoutMenu" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -51,7 +69,7 @@
                     </connections>
                 </screenEdgePanGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="539.20000000000005" y="991.15999999999997"/>
+            <point key="canvasLocation" x="541" y="991"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Rr9-sw-jdG">
@@ -119,7 +137,7 @@
                                         <rect key="frame" x="0.0" y="28" width="256" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kOr-gK-QrM" id="qJ7-Tt-N9U">
-                                            <rect key="frame" x="0.0" y="0.0" width="256" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="256" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -154,12 +172,13 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="928" y="991"/>
+            <point key="canvasLocation" x="1040" y="579"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="CRF-zN-Zak">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hhN-NR-JOp" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="SBV-de-RLa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="MHD-HW-fdj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -174,5 +193,72 @@
             </objects>
             <point key="canvasLocation" x="144" y="991"/>
         </scene>
+        <!--Tab2-->
+        <scene sceneID="gjk-NB-h5b">
+            <objects>
+                <viewController id="XTp-19-XZf" customClass="Tab2" customModule="InteractiveSlideoutMenu" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="6kQ-HO-fQW"/>
+                        <viewControllerLayoutGuide type="bottom" id="24D-t0-dRd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="lch-zU-sNd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.50196081400000003" green="0.0" blue="0.25098040700000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <gestureRecognizers/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="kwM-bl-mVb" appends="YES" id="1wr-rO-ni5"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="7PA-zy-4EU">
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="MLr-At-J6I">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="BhV-BU-Gg5">
+                                <rect key="frame" x="16" y="7" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Menu">
+                                    <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="openMenu:" destination="XTp-19-XZf" eventType="touchUpInside" id="SSz-g3-DfY"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="syw-Sf-K3A" kind="modal" identifier="openMenu" id="hUA-0A-Rhw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oMM-Ab-90l" sceneMemberID="firstResponder"/>
+                <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="kwM-bl-mVb">
+                    <rectEdge key="edges" left="YES"/>
+                    <connections>
+                        <action selector="edgePanGesture:" destination="XTp-19-XZf" id="Wsw-v1-4hl"/>
+                    </connections>
+                </screenEdgePanGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="565" y="247"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="jMa-Zr-sb4">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SZs-DT-rol" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="pZX-wt-cif"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="txF-0z-p4t">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XTp-19-XZf" kind="relationship" relationship="rootViewController" id="vgM-7H-hwl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7do-eC-MAw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="137" y="247"/>
+        </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="hUA-0A-Rhw"/>
+    </inferredMetricsTieBreakers>
 </document>

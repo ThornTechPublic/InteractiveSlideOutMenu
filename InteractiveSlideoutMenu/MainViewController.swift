@@ -28,6 +28,7 @@ import UIKit
 
 protocol MenuActionDelegate {
     func openSegue(segueName: String, sender: AnyObject?)
+    func selectTab(index: Int)
 }
 
 class MainViewController: UIViewController {
@@ -83,6 +84,11 @@ extension MainViewController : MenuActionDelegate {
     func openSegue(segueName: String, sender: AnyObject?) {
         dismissViewControllerAnimated(true){
             self.performSegueWithIdentifier(segueName, sender: sender)
+        }
+    }
+    func selectTab(index: Int){
+        dismissViewControllerAnimated(true){
+            self.tabBarController?.selectedIndex = index
         }
     }
 }

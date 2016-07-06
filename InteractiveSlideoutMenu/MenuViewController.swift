@@ -70,13 +70,6 @@ extension MenuViewController : UITableViewDataSource {
 extension MenuViewController : UITableViewDelegate {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        switch indexPath.row {
-        case 0:
-            menuActionDelegate?.openSegue("openFirst", sender: nil)
-        case 1:
-            menuActionDelegate?.openSegue("openSecond", sender: nil)
-        default:
-            break
-        }
+        menuActionDelegate?.selectTab(indexPath.row)
     }
 }

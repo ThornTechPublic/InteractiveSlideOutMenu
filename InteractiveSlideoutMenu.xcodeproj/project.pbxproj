@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC9D6ED01D2C990100B18C4B /* Tab1.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D6ECF1D2C990100B18C4B /* Tab1.swift */; };
+		FC9D6ED21D2C990B00B18C4B /* Tab2.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC9D6ED11D2C990B00B18C4B /* Tab2.swift */; };
 		FCE69DB01C67A61B004247E0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DAF1C67A61B004247E0 /* AppDelegate.swift */; };
 		FCE69DB21C67A61B004247E0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCE69DB11C67A61B004247E0 /* MainViewController.swift */; };
 		FCE69DB51C67A61B004247E0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCE69DB31C67A61B004247E0 /* Main.storyboard */; };
@@ -31,6 +33,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		FC9D6ECF1D2C990100B18C4B /* Tab1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab1.swift; sourceTree = "<group>"; };
+		FC9D6ED11D2C990B00B18C4B /* Tab2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tab2.swift; sourceTree = "<group>"; };
 		FCE69DAC1C67A61B004247E0 /* InteractiveSlideoutMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InteractiveSlideoutMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCE69DAF1C67A61B004247E0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCE69DB11C67A61B004247E0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 			children = (
 				FCE69DAF1C67A61B004247E0 /* AppDelegate.swift */,
 				FCE69DB11C67A61B004247E0 /* MainViewController.swift */,
+				FC9D6ECF1D2C990100B18C4B /* Tab1.swift */,
+				FC9D6ED11D2C990B00B18C4B /* Tab2.swift */,
 				FCE69DCF1C67A695004247E0 /* MenuViewController.swift */,
 				FCE69DD31C67A859004247E0 /* Interactor.swift */,
 				FCE69DD11C67A81C004247E0 /* MenuHelper.swift */,
@@ -217,6 +223,8 @@
 				FCE69DD41C67A859004247E0 /* Interactor.swift in Sources */,
 				FCE69DD81C67A99D004247E0 /* DismissMenuAnimator.swift in Sources */,
 				FCE69DD61C67A8B8004247E0 /* PresentMenuAnimator.swift in Sources */,
+				FC9D6ED21D2C990B00B18C4B /* Tab2.swift in Sources */,
+				FC9D6ED01D2C990100B18C4B /* Tab1.swift in Sources */,
 				FCE69DD21C67A81C004247E0 /* MenuHelper.swift in Sources */,
 				FCE69DB01C67A61B004247E0 /* AppDelegate.swift in Sources */,
 			);
@@ -408,6 +416,7 @@
 				FCE69DCB1C67A61B004247E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FCE69DCC1C67A61B004247E0 /* Build configuration list for PBXNativeTarget "InteractiveSlideoutMenuUITests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +425,7 @@
 				FCE69DCE1C67A61B004247E0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
