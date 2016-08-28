@@ -53,6 +53,21 @@ class MenuViewController : UIViewController {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
+    func delay(seconds seconds: Double, completion:()->()) {
+        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
+        dispatch_after(popTime, dispatch_get_main_queue()) {
+            completion()
+        }
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        dismissViewControllerAnimated(true){
+            self.delay(seconds: 0.5){
+                self.menuActionDelegate?.reopenMenu()
+            }
+        }
+    }
+    
 }
 
 extension MenuViewController : UITableViewDataSource {

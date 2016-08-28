@@ -28,6 +28,7 @@ import UIKit
 
 protocol MenuActionDelegate {
     func openSegue(segueName: String, sender: AnyObject?)
+    func reopenMenu()
 }
 
 class MainViewController: UIViewController {
@@ -84,5 +85,8 @@ extension MainViewController : MenuActionDelegate {
         dismissViewControllerAnimated(true){
             self.performSegueWithIdentifier(segueName, sender: sender)
         }
+    }
+    func reopenMenu(){
+        performSegueWithIdentifier("openMenu", sender: nil)
     }
 }
