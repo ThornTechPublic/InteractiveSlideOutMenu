@@ -30,27 +30,27 @@ class DismissMenuAnimator : NSObject {
 }
 
 extension DismissMenuAnimator : UIViewControllerAnimatedTransitioning {
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.6
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-            let containerView = transitionContext.containerView()
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             else {
                 return
         }
+        let containerView = transitionContext.containerView
         let snapshot = containerView.viewWithTag(MenuHelper.snapshotNumber)
         
-        UIView.animateWithDuration(
-            transitionDuration(transitionContext),
+        UIView.animate(
+            withDuration: transitionDuration(using: transitionContext),
             animations: {
-                snapshot?.frame = CGRect(origin: CGPoint.zero, size: UIScreen.mainScreen().bounds.size)
+                snapshot?.frame = CGRect(origin: CGPoint.zero, size: UIScreen.main.bounds.size)
             },
             completion: { _ in
-                let didTransitionComplete = !transitionContext.transitionWasCancelled()
+                let didTransitionComplete = !transitionContext.transitionWasCancelled
                 if didTransitionComplete {
                     containerView.insertSubview(toVC.view, aboveSubview: fromVC.view)
                     snapshot?.removeFromSuperview()

@@ -27,7 +27,7 @@
 import UIKit
 
 protocol MenuActionDelegate {
-    func openSegue(segueName: String, sender: AnyObject?)
+    func openSegue(_ segueName: String, sender: AnyObject?)
     func reopenMenu()
 }
 
@@ -35,25 +35,25 @@ class MainViewController: UIViewController {
 
     let interactor = Interactor()
 
-    @IBAction func openMenu(sender: AnyObject) {
-        performSegueWithIdentifier("openMenu", sender: nil)
+    @IBAction func openMenu(_ sender: AnyObject) {
+        performSegue(withIdentifier: "openMenu", sender: nil)
     }
     
-    @IBAction func edgePanGesture(sender: UIScreenEdgePanGestureRecognizer) {
-        let translation = sender.translationInView(view)
+    @IBAction func edgePanGesture(_ sender: UIScreenEdgePanGestureRecognizer) {
+        let translation = sender.translation(in: view)
         
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Right)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .right)
         
         MenuHelper.mapGestureStateToInteractor(
             sender.state,
             progress: progress,
             interactor: interactor){
-                self.performSegueWithIdentifier("openMenu", sender: nil)
+                self.performSegue(withIdentifier: "openMenu", sender: nil)
         }
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if let destinationViewController = segue.destinationViewController as? MenuViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? MenuViewController {
             destinationViewController.transitioningDelegate = self
             destinationViewController.interactor = interactor
             destinationViewController.menuActionDelegate = self
@@ -63,30 +63,30 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController: UIViewControllerTransitioningDelegate {
-    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return PresentMenuAnimator()
     }
 
-    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return DismissMenuAnimator()
     }
     
-    func interactionControllerForDismissal(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
     
-    func interactionControllerForPresentation(animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
         return interactor.hasStarted ? interactor : nil
     }
 }
 
 extension MainViewController : MenuActionDelegate {
-    func openSegue(segueName: String, sender: AnyObject?) {
-        dismissViewControllerAnimated(true){
-            self.performSegueWithIdentifier(segueName, sender: sender)
+    func openSegue(_ segueName: String, sender: AnyObject?) {
+        dismiss(animated: true){
+            self.performSegue(withIdentifier: segueName, sender: sender)
         }
     }
     func reopenMenu(){
-        performSegueWithIdentifier("openMenu", sender: nil)
+        performSegue(withIdentifier: "openMenu", sender: nil)
     }
 }
