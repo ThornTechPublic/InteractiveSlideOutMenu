@@ -36,32 +36,32 @@ class MenuViewController : UIViewController {
     
     let menuItems = ["First", "Second"]
     
-    @IBAction func handleGesture(sender: UIPanGestureRecognizer) {
-        let translation = sender.translationInView(view)
+    @IBAction func handleGesture(_ sender: UIPanGestureRecognizer) {
+        let translation = sender.translation(in: view)
 
-        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .Left)
+        let progress = MenuHelper.calculateProgress(translation, viewBounds: view.bounds, direction: .left)
         
         MenuHelper.mapGestureStateToInteractor(
             sender.state,
             progress: progress,
             interactor: interactor){
-                self.dismissViewControllerAnimated(true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
         }
     }
     
-    @IBAction func closeMenu(sender: AnyObject) {
-        dismissViewControllerAnimated(true, completion: nil)
+    @IBAction func closeMenu(_ sender: AnyObject) {
+        dismiss(animated: true, completion: nil)
     }
     
-    func delay(seconds seconds: Double, completion:()->()) {
-        let popTime = dispatch_time(DISPATCH_TIME_NOW, Int64( Double(NSEC_PER_SEC) * seconds ))
-        dispatch_after(popTime, dispatch_get_main_queue()) {
+    func delay(seconds: Double, completion:@escaping ()->()) {
+        let popTime = DispatchTime.now() + Double(Int64( Double(NSEC_PER_SEC) * seconds )) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: popTime) {
             completion()
         }
     }
     
-    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
-        dismissViewControllerAnimated(true){
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        dismiss(animated: true){
             self.delay(seconds: 0.5){
                 self.menuActionDelegate?.reopenMenu()
             }
@@ -71,20 +71,20 @@ class MenuViewController : UIViewController {
 }
 
 extension MenuViewController : UITableViewDataSource {
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return menuItems.count
     }
 
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell")!
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
         cell.textLabel?.text = menuItems[indexPath.row]
         return cell
     }
 }
 
 extension MenuViewController : UITableViewDelegate {
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
         switch indexPath.row {
         case 0:
             menuActionDelegate?.openSegue("openFirst", sender: nil)

@@ -30,37 +30,39 @@ class PresentMenuAnimator : NSObject {
 }
 
 extension PresentMenuAnimator : UIViewControllerAnimatedTransitioning {
-    func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
+    func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
         return 0.6
     }
     
-    func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
+    func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
         guard
-            let fromVC = transitionContext.viewControllerForKey(UITransitionContextFromViewControllerKey),
-            let toVC = transitionContext.viewControllerForKey(UITransitionContextToViewControllerKey),
-            let containerView = transitionContext.containerView()
+            let fromVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.from),
+            let toVC = transitionContext.viewController(forKey: UITransitionContextViewControllerKey.to)
             else {
                 return
         }
+        let containerView = transitionContext.containerView
         containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
         
         // replace main view with snapshot
-        let snapshot = fromVC.view.snapshotViewAfterScreenUpdates(false)
-        snapshot.tag = MenuHelper.snapshotNumber
-        snapshot.userInteractionEnabled = false
-        snapshot.layer.shadowOpacity = 0.7
-        containerView.insertSubview(snapshot, aboveSubview: toVC.view)
-        fromVC.view.hidden = true
-        
-        UIView.animateWithDuration(
-            transitionDuration(transitionContext),
-            animations: {
-                snapshot.center.x += UIScreen.mainScreen().bounds.width * MenuHelper.menuWidth
+        if let snapshot = fromVC.view.snapshotView(afterScreenUpdates: false) {
+            snapshot.tag = MenuHelper.snapshotNumber
+            snapshot.isUserInteractionEnabled = false
+            snapshot.layer.shadowOpacity = 0.7
+            
+            containerView.insertSubview(snapshot, aboveSubview: toVC.view)
+            fromVC.view.isHidden = true
+            
+            UIView.animate(
+                withDuration: transitionDuration(using: transitionContext),
+                animations: {
+                    snapshot.center.x += UIScreen.main.bounds.width * MenuHelper.menuWidth
             },
-            completion: { _ in
-                fromVC.view.hidden = false
-                transitionContext.completeTransition(!transitionContext.transitionWasCancelled())
+                completion: { _ in
+                    fromVC.view.isHidden = false
+                    transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
             }
-        )
+            )
+        }
     }
 }
